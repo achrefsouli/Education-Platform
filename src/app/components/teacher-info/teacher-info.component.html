@@ -1,0 +1,15 @@
+
+    <img class="img-fluid" src={{this.url}} alt="">
+    <div class="bg-light text-center p-4">
+        <h5 class="mb-3">{{teacherInput.fName}} {{teacherInput.lName}}</h5>
+        <p class="mb-2">{{teacherInput.specialite}}</p>
+        <a [href]="teacherInput.cv" target="_blank" >
+          <button type="button" class="btn btn-info">📄check out CV</button>
+          </a>
+      
+    </div>
+    <div class="d-flex justify-content-center" style="margin-top: 2%;">
+        <button type="button" *ngIf="user && user.role=='admin'" (click)="deleteTeacher(teacherInput._id)"  class="btn btn-danger">delete</button>
+    </div>
+
+

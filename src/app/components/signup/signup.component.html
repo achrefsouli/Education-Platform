@@ -1,0 +1,208 @@
+<section class="h-100 ">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <form [formGroup]="signupForm">
+            <div class="row g-0">
+
+              <div class="col-xl-12">
+                <div class="card-body p-md-5 text-black">
+                  <h3 class="mb-5 text-uppercase">registration form</h3>
+                  <!--first/last name-->
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="fName" formControlName="fName" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example1m">First name</label>
+                        <span id="fNameError"></span>
+                      </div>
+                      <div *ngIf="signupForm.controls['fName'].invalid &&
+             (signupForm.controls['fName'].touched||signupForm.controls['fName'].dirty)">
+                        <div *ngIf="signupForm.controls['fName'].errors?.['required']" style="color: red;">Fn required
+                        </div>
+                        <div *ngIf="signupForm.controls['fName'].errors?.['minlength']" style="color: red;">Fn should at
+                          least have 3 caracteres</div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="lName" formControlName="lName" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example1n">Last name</label>
+
+                      </div>
+                      <div *ngIf="signupForm.controls['lName'].invalid &&
+                  (signupForm.controls['lName'].touched||signupForm.controls['lName'].dirty)">
+                        <div *ngIf="signupForm.controls['lName'].errors?.['required']" style="color: red;">ln required
+                        </div>
+                        <div *ngIf="signupForm.controls['lName'].errors?.['minlength']" style="color: red;">ln should at
+                          least have 3 caracteres</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--mother/father name-->
+                  <div class="row" *ngIf="route=='/signup'">
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="motherName" formControlName="motherName"
+                          class="form-control form-control-lg" />
+                        <label class="form-label">Mother's name</label>
+                        <span id="motherNameError"></span>
+                      </div>
+                      <div *ngIf="signupForm.controls['motherName'].invalid &&
+             (signupForm.controls['motherName'].touched||signupForm.controls['motherName'].dirty)">
+                        <div *ngIf="signupForm.controls['motherName'].errors?.['required']" style="color: red;">mother
+                          Name required
+                        </div>
+                        <div *ngIf="signupForm.controls['motherName'].errors?.['minlength']" style="color: red;">mother
+                          Name should
+                          at least have 3 caracteres</div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="fatherName" formControlName="fatherName"
+                          class="form-control form-control-lg" />
+                        <label class="form-label">Father's name</label>
+                        <span id="fatherNameError"></span>
+                      </div>
+                      <div *ngIf="signupForm.controls['fatherName'].invalid &&
+             (signupForm.controls['fatherName'].touched||signupForm.controls['fatherName'].dirty)">
+                        <div *ngIf="signupForm.controls['fatherName'].errors?.['required']" style="color: red;">father
+                          Name required
+                        </div>
+                        <div *ngIf="signupForm.controls['fatherName'].errors?.['minlength']" style="color: red;">father
+                          Name should
+                          at least have 3 caracteres</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--adresse-->
+                  <div *ngIf="route !='/signupAdmin'">
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <input type="text" id="adresse" formControlName="adresse" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example8">Address</label>
+                      <span id="addressError"></span>
+                    </div>
+                    <div
+                      *ngIf="signupForm.controls['adresse'].invalid &&(signupForm.controls['adresse'].touched||signupForm.controls['adresse'].dirty)">
+                      <div *ngIf="signupForm.controls['adresse'].errors?.['required']" style="color: red;">adresse
+                        required
+                      </div>
+                      <div *ngIf="signupForm.controls['adresse'].errors?.['minlength']" style="color: red;">adresse
+                        should at
+                        least have 5 caracteres</div>
+                    </div>
+                  </div>
+
+                  <!--tel-->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="number" id="tel" formControlName="tel" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example97">Telephone number</label>
+                  </div>
+                  <div *ngIf="signupForm.controls['tel'].invalid &&
+                  (signupForm.controls['tel'].touched||signupForm.controls['tel'].dirty)">
+                    <div *ngIf="signupForm.controls['tel'].errors?.['required']" style="color: red;">tel required
+                    </div>
+                    <div *ngIf="signupForm.controls['tel'].errors?.['pattern']" style="color: red;">tel number must be 8
+                      digits</div>
+                  </div>
+                  <!--specialite-->
+                  <div *ngIf="route=='/signupTeacher'">
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <input type="text" id="specialite" formControlName="specialite" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example97">specialite</label>
+                    </div>
+                    <div *ngIf="signupForm.controls['specialite'].invalid &&
+                    (signupForm.controls['specialite'].touched||signupForm.controls['specialite'].dirty)">
+                      <div *ngIf="signupForm.controls['specialite'].errors?.['required']" style="color: red;">specialite required
+                      </div>
+                      <div *ngIf="signupForm.controls['specialite'].errors?.['minlength']" style="color: red;">specialite should at least have 4 caracteres</div>
+                    </div>
+                  </div>
+                 
+                  <!--email-->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="email" id="email" formControlName="email" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example97">Email</label>
+                  </div>
+                  <div *ngIf="signupForm.controls['email'].invalid &&
+                  (signupForm.controls['email'].touched||signupForm.controls['email'].dirty)">
+                    <div *ngIf="signupForm.controls['email'].errors?.['required']" style="color: red;">email required
+                    </div>
+                    <div *ngIf="signupForm.controls['email'].errors?.['email']" style="color: red;">invalid email</div>
+                  </div>
+                  <!--password-->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="password" id="password" formControlName="password" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example97">Password</label>
+                  </div>
+                  <div *ngIf="signupForm.controls['password'].invalid &&
+                  (signupForm.controls['password'].touched||signupForm.controls['password'].dirty)">
+                    <div *ngIf="signupForm.controls['password'].errors?.['required']" style="color: red;">password
+                      required
+                    </div>
+                    <div *ngIf="signupForm.controls['password'].errors?.['pattern']" style="color: red;">
+                      .at least one lowercase letter
+                      <br>
+                      .at least one uppercase letter
+                      <br>
+                      .at least one digit
+                      <br>
+                      .at least one special character (like !@#$%^&*)
+                      <br>
+                      .at least 8 characters total
+                    </div>
+                  </div>
+                  <!--tel enfant-->
+                  <div *ngIf="route == '/signupParent'">
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <input type="number" id="telChild" formControlName="telChild"
+                        class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example97">Child Telephone number</label>
+                    </div>
+                    <div *ngIf="signupForm.controls['telChild'].invalid &&
+                    (signupForm.controls['telChild'].touched||signupForm.controls['telChild'].dirty)">
+                      <div *ngIf="signupForm.controls['telChild'].errors?.['required']" style="color: red;">tel required
+                      </div>
+                      <div *ngIf="signupForm.controls['telChild'].errors?.['pattern']" style="color: red;">tel number
+                        must be 8 digits</div>
+                    </div>
+                  </div>
+                  <!--photo-->
+                  <div *ngIf="route=='/signup'">
+                    <div class="form-group">
+                      <input type="file" #filePicker class="form-control" style="visibility: hidden;"
+                        (change)="onImageSelected($event)" accept=".png,.jpg,.jpeg" required>
+                    </div>
+                    <div class="text-center">
+                      <button class="btn btn-warning" (click)="filePicker.click()" >select your file photo</button>
+                    </div>
+                  </div>
+                  <!--cv-->
+                  <div *ngIf="route=='/signupTeacher'">
+                    <div class="form-group">
+                      <input type="file" #filePickerr class="form-control" style="visibility: hidden;"
+                        (change)="onCvSelected($event)" accept=".pdf" required>
+                    </div>
+                    <div class="text-center">
+                      <button class="btn btn-warning" (click)="filePickerr.click()">select your CV</button>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex justify-content-end pt-3">
+                    <input type="submit" class="btn btn-warning btn-lg ms-2" [disabled]="signupForm.invalid"
+                      (click)="signup()">
+                      
+                  </div>
+                  <span>{{errorMsg}}</span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

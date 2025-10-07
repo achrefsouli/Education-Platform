@@ -1,0 +1,89 @@
+<app-banner bannerInput="home"></app-banner>
+<!-- Header End -->
+<!-- About Start -->
+<app-about-us></app-about-us>
+<!-- About End -->
+<app-instructors></app-instructors>
+<app-courses></app-courses>
+<!--<app-contaact-form></app-contaact-form>-->
+<div class="container-fluid py-5" *ngIf="isLoggedIn()&&user.role=='parent'">
+  <div class="container py-5">
+    <div class="row align-items-center">
+
+      <div class="col-lg-7" style="margin: auto; width: 50%; padding: 10px;">
+        <div class="section-title position-relative mb-4">
+
+          <h1 class="display-4">search for your child Courses and grades</h1>
+        </div>
+        <div class="contact-form">
+          <form #searchForm="ngForm" (ngSubmit)="searchStudent()">
+            <div class="row">
+              <div class="col-12 form-group">
+                <input type="number" [(ngModel)]="tel"
+                  class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                  placeholder="child telephone number" required="required" name="grade">
+              </div>
+            </div>
+
+            <div>
+              <button class="btn btn-primary py-3 px-5" type="submit">search</button>
+            </div>
+            <span></span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h6 class=" text-center">{{errorMsg}}</h6>
+<div class="container-fluid py-5" *ngIf="student && errorMsg!='user not found' ">
+  <div class="container py-5">
+    <div class="row mx-0 justify-content-center">
+      <div class="col-lg-8">
+        <div class="section-title text-center position-relative mb-5">
+          <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Courses</h6>
+          <h1 class="display-4">here is your child courses</h1>
+        </div>
+      </div>
+    </div>
+    <p style="color: black;" class="text-center" *ngIf="student.courseIds.length==0">no courses found</p>
+
+    <div class="row" *ngIf="student.courseIds.length!=0">
+      <div class="col-lg-4 col-md-6 pb-4" *ngFor="let course of student.courseIds">
+        <app-course-info [courseInput]="course"></app-course-info>
+      </div>
+    </div>
+  </div>
+  <div class="section-title text-center position-relative mb-5">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Grades</h6>
+    <h1 class="display-4">here is your child Grades</h1>
+  </div>
+  <p *ngIf="student.gradeIds.length==0" class="text-center" style="color: black;">no grades found</p>
+
+  <div class="container" *ngIf="student.gradeIds.length!=0">
+    <div class="table-responsive">
+      <table class="table table-responsive table-borderless col-md-8 mx-auto ">
+        <thead>
+          <tr class="bg-light">
+            <th scope="col" width="20%">Course</th>
+            <th scope="col" width="10%">Grade</th>
+            <th scope="col" width="20%">Evaluation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let grade of grades">
+
+            <td>{{grade.courseId.name}}</td>
+            <td>{{grade.grade}}</td>
+            <td>{{grade.evaluation}}</td>
+
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

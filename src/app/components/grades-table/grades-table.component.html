@@ -1,0 +1,47 @@
+
+<table class="table custom-table" >
+    <thead>
+      <tr>
+        <th >Id</th>
+        <th>student id</th>
+        <th>student name</th>
+        <th>course id</th>
+        <th>course name</th>
+        <th>Grade</th>
+        <th>Evaluation</th>
+        <th>actions</th>
+        <th>
+          <div class="dropdown">
+          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sort
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton">
+            <p (click)="sortCroissant()" class="dropdown-item">grades ↗️</p>
+            <p (click)="sortDecroissant()" class="dropdown-item">grades ↘️</p>
+            
+          </div>
+        </div>
+      </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grade of grades"> 
+        <td><strong >{{grade._id}}</strong></td>
+        <td><strong >{{grade.studentId._id}}</strong></td>
+        <td><strong >{{grade.studentId.fName}} {{grade.studentId.lName}}</strong></td>
+        <td><strong >{{grade.courseId._id}}</strong></td>
+        <td><strong >{{grade.courseId.name}}</strong></td>
+        <td><strong >{{grade.grade}}</strong></td>
+        <td><strong >{{grade.evaluation}}</strong></td>
+       
+        <td>
+            <button type="button" class="btn btn-warning" (click)="edit(grade._id)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="delete(grade._id)">Delete</button>
+        </td>
+        
+      </tr>
+      
+     
+    </tbody>
+  </table>
+

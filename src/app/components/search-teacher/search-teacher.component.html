@@ -1,0 +1,32 @@
+<app-banner bannerInput="search teacher"></app-banner>
+<div class="contact-form ">
+<form #searchForm="ngForm" (ngSubmit)="searchTeacher()">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+  <div class="search-container">
+    <input type="text" [(ngModel)]="search.specialite" name="specialite" class="form-control search-input" placeholder="Specialite...">
+    <i class="fas fa-search search-icon"></i>
+  </div>
+</div>
+</div>
+</div>
+    <div class="d-flex justify-content-center" style="margin-top: 1%;">
+      <button class="btn btn-primary py-3 px-5" type="submit" [disabled]="searchForm.invalid">search</button>
+    </div>
+  </form>
+</div>
+<div class="section-title text-center position-relative" style="margin-top: 2%;" *ngIf="teachers.length==0">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">no teachers found</h6> 
+</div>
+<div class="row" style="margin-top: 5%;">
+    <div class="container px-4 text-center"  *ngIf="teachers.length!=0">
+        <div class="row gx-5">
+          <div class="col" *ngFor="let teacher of teachers">
+            <div class="p-3"><app-teacher-info [teacherInput]="teacher"></app-teacher-info></div>
+          </div>
+         
+        </div>
+      </div>
+  </div>
+  

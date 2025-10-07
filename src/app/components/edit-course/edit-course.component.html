@@ -1,0 +1,35 @@
+<div class="container-fluid py-5">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        
+        <div class="col-lg-7" style="margin: auto; width: 50%; padding: 10px;">
+          <div class="section-title position-relative mb-4">
+        
+            <h1 class="display-4">Edit Course</h1>
+          </div>
+          <div class="contact-form">
+            <form #idForm="ngForm" (ngSubmit)="updateCourse()">
+              <div class="row">
+                <div class="col-6 form-group">
+                  <input type="text"  [(ngModel)]="course.name" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                    placeholder="Name" required="required" name="name">
+                </div>
+                <div class="col-6 form-group">
+                  <input type="number" [(ngModel)]="course.duration" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                    placeholder="Duration(months)" name="duration" required="required">
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="7"
+                  placeholder="Description" [(ngModel)]="course.description" name="description" required="required"></textarea>
+              </div>
+              <div>
+                <button class="btn btn-primary py-3 px-5" type="submit" [disabled]="idForm.invalid">update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

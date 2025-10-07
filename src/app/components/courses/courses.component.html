@@ -1,0 +1,17 @@
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row mx-0 justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center position-relative mb-5">
+                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Courses</h6>
+                    <h1 class="display-4">Checkout Our Courses</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 pb-4" *ngFor="let course of courses">
+                <app-course-info (courseOutput)="updateCourses($event)" [courseInput]="course" ></app-course-info>
+            </div>
+                 
+        </div>
+    </div>

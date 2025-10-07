@@ -1,0 +1,50 @@
+<app-banner bannerInput="student dashboard"></app-banner>
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row mx-0 justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center position-relative mb-5">
+                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Courses</h6>
+                    <h1 class="display-4">here is your courses</h1>
+                </div>
+            </div>
+        </div>
+        <p *ngIf="courses.length==0" class="text-center " style="color: red;">no courses found</p>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 pb-4 " *ngFor="let course of courses">
+                <app-course-info [courseInput]="course" ></app-course-info>
+            </div>     
+        </div>
+    </div>
+    <div class="section-title text-center position-relative mb-5">
+        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Grades</h6>
+        <h1 class="display-4">here is your Grades</h1>
+    </div>
+    <p  class="text-center" *ngIf="grades.length==0" style="color: red;">no grades found</p>
+        <div class="container" *ngIf="grades.length!=0">
+          <div class="table-responsive">
+          <table class="table table-responsive table-borderless col-md-8 mx-auto ">   
+            <thead>
+              <tr class="bg-light" >
+                <th scope="col" width="20%">Course</th>
+                <th scope="col" width="10%">Grade</th>
+                <th scope="col" width="20%">Evaluation</th>
+              </tr>
+            </thead>
+        <tbody>
+          <tr *ngFor="let grade of grades">
+            
+            <td>{{grade.courseId.name}}</td>
+            <td>{{grade.grade}}</td>
+            <td>{{grade.evaluation}}</td>
+        
+           
+          </tr>
+        </tbody>
+      </table>
+        
+        </div>
+          
+      </div>
+      
+      

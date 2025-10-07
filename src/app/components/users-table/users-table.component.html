@@ -1,0 +1,63 @@
+<table class="table custom-table" >
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>First name</th>
+        <th>last name</th>
+        <th>Role</th>
+        <th>tel</th>
+        <th>email</th>
+        <th>statuts</th>
+        <th>courses</th>
+        <th>actions</th>
+        <th><div class="dropdown">
+          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sort
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton">
+            <p (click)="ngOnInit()" class="dropdown-item">All</p>
+            <p (click)="getTeachers()" class="dropdown-item">teachers</p>
+            <p  (click)="getStudents()" class="dropdown-item">students</p>
+            <p (click)="getParents()" class="dropdown-item">parents</p>
+            
+          </div>
+        </div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users"> 
+        <td><strong class="text">{{user._id}}</strong></td>
+        <td><strong class="text">{{user.fName | titlecase}}</strong></td>
+        <td><strong class="text">{{user.lName | titlecase}}</strong></td>
+        <td><strong class="text">{{user.role | titlecase}}</strong></td>
+        <td><strong class="text">{{user.tel}}</strong></td>
+        <td><strong class="text">{{user.email}}</strong></td>
+        <td>
+          <strong class="text" *ngIf="user.role=='teacher'">{{user.statut}}</strong>
+          <span *ngIf="user.role!='teacher'" >---</span>
+        </td>
+        <td>
+          <span *ngIf="user.role!='student'">---</span>
+          <div class="dropdown" *ngIf="user.role=='student'">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Course 
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton">
+            <a *ngFor="let course of courses" (click)="selectedCourse(course._id)"  class="dropdown-item">{{course.name}}</a>
+          </div>
+        </div></td>
+
+        <td>
+            <button *ngIf=" user.role=='teacher'&&user.statut=='notVerified'" type="button" class="btn btn-success" (click)="verify(user)">Verify</button>
+            <button   *ngIf="!user.courseId && user.role=='student'" type="button" class="btn btn-success"  (click)="affecterCours(user)" >Affecter</button>
+            <button type="button" class="btn btn-warning"  (click)="edit(user._id)" >Edit</button>
+            <button type="button" (click)="delete(user._id)" class="btn btn-danger" >Delete</button>
+        </td>
+        
+        
+      </tr>
+      
+     
+    </tbody>
+  </table>
+

@@ -1,0 +1,57 @@
+
+<table class="table custom-table" >
+    <thead>
+      <tr>
+        <th *ngIf="path=='/admin'">Id</th>
+        <th>Name</th>
+        <th>duration</th>
+        <th>description</th>
+        <th *ngIf="path=='/admin'">teacher ID</th>
+        <th *ngIf="path=='/admin'">teacher info</th>
+        <th>actions</th>
+        <th><div class="dropdown">
+          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sort
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton">
+            <p (click)="sortDurationCroissant()" class="dropdown-item">duration ↗️</p>
+            <p (click)="sortDurationDecroissant()" class="dropdown-item">duration ↘️</p>
+          </div>
+        </div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses"> 
+        <td *ngIf="path=='/admin'"><strong >{{course._id}}</strong></td>
+        <td><strong >{{course.name}}</strong></td>
+        <td><strong >{{course.duration}}</strong></td>
+        <td><strong >{{course.description}}</strong></td>
+        <td *ngIf="path=='/admin'"><strong >{{course.teacherId._id}}</strong></td>
+        <td *ngIf="path=='/admin'">
+          <strong >{{course.teacherId.fName}} {{course.teacherId.lName}}</strong>
+         <br>
+         <strong >{{course.teacherId.specialite}}</strong>
+        </td>
+        <td>
+          <!-- Example single danger button -->
+<div class="btn-group" *ngIf="path=='/dashboardTeacher'" >
+  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    students list
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" *ngIf="course.studentIds.length==0" style="color: red;">no students added yet</a>
+
+    <a class="dropdown-item" *ngFor="let student of course.studentIds" (click)="GoToGrades(course._id,student._id)" >{{student.fName}} {{student.lName}}</a>
+  </div>
+</div>
+           
+            <button type="button" class="btn btn-success" (click)="display(course._id)" >display</button>
+            <button type="button" class="btn btn-warning" (click)="edit(course._id)" >Edit</button>
+            <button type="button" class="btn btn-danger"(click)="delete(course._id)" >Delete</button>
+        </td>
+        
+      </tr>
+      
+     
+    </tbody>
+  </table>

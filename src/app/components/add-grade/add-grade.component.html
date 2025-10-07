@@ -1,0 +1,33 @@
+<div class="container-fluid py-5">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        
+        <div class="col-lg-7" style="margin: auto; width: 50%; padding: 10px;">
+          <div class="section-title position-relative mb-4">
+        
+            <h1 class="display-4">Add Grade</h1>
+          </div>
+          <div class="contact-form">
+            <form #gradeForm="ngForm" (ngSubmit)="addGrade()">
+              <div class="row">
+                <div class="col-12 form-group">
+                  <input type="number"  [(ngModel)]="grade.grade" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                    placeholder="grade" required="required" name="grade">
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="7"
+                  placeholder="Evaluation" [(ngModel)]="grade.evaluation" name="evaluation" required="required"></textarea>
+              </div>
+              <div>
+                <button class="btn btn-primary py-3 px-5" type="submit">assign</button>
+              </div>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
