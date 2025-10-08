@@ -105,10 +105,10 @@ app.post("/users/signup", multer({ storage: storage }).single("photo"), (req, re
                                         console.log("here is crypted pass", cryptedPass);
                                         req.body.password = cryptedPass;
                                         if (req.file && req.body.role == "student") {
-                                            req.body.img = "http://localhost:3000/myShortCut/" + req.file.filename;
+                                            req.body.img = "https://education-platform-60q2.onrender.com/myShortCut/" + req.file.filename;
                                         }
                                         if (req.file && req.body.role == "teacher") {
-                                            req.body.cv = "http://localhost:3000/myShortCut/" + req.file.filename;
+                                            req.body.cv = "https://education-platform-60q2.onrender.com/myShortCut/" + req.file.filename;
                                         }
             
             
