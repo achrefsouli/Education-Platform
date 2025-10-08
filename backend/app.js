@@ -2,7 +2,13 @@ const express = require('express');
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/educationDB");
+require('dotenv').config();
+const uri= process.env.MONGO_URI
+mongoose.connect(uri,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }).then(() => {
+    console.log('✅ Connected to MongoDB Atlas');});
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const jwt = require("jsonwebtoken");
@@ -12,7 +18,7 @@ const axios = require("axios");
 const rateLimit =require("express-rate-limit")
 const app = express();
 const nodemailer = require("nodemailer");
-require('dotenv').config();
+
 //cors config
 app.use(cors({
     origin: "http://localhost:4200"
