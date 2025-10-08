@@ -21,7 +21,7 @@ const nodemailer = require("nodemailer");
 
 //cors config
 app.use(cors({
-    origin: "http://localhost:4200"
+    origin: "https://educationplatforme.netlify.app"
 }))
 //body-parser config
 app.use(bodyParser.json());
