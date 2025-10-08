@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CourseService {
-  courseUrl:string="http://localhost:3000/courses"
+  courseUrl:string="https://education-platform-60q2.onrender.com/courses"
   constructor(private httpClient : HttpClient) { }
   addCourse(course:any){
    return this.httpClient.post<{ msg: string }>(this.courseUrl,course);

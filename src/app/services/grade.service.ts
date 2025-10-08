@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GradeService {
-  gradeUrl: string = "http://localhost:3000/grades"
+  gradeUrl: string = "https://education-platform-60q2.onrender.com/grades"
   constructor(private httpClient: HttpClient) { }
   addGrade(grade: any) {
     return this.httpClient.post<{ msg: string }>(this.gradeUrl, grade);

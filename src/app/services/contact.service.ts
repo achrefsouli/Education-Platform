@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ContactService {
-contactUrl:string="http://localhost:3000/contact"
+contactUrl:string="https://education-platform-60q2.onrender.com/contact"
   constructor(private httpClient : HttpClient) { }
   addContact(contact:any){
     return this.httpClient.post<{msg:string}>(this.contactUrl,contact)

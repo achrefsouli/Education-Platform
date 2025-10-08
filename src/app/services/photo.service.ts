@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PhotoService {
-  photoUrl:string="http://localhost:3000/photos"
+  photoUrl:string="https://education-platform-60q2.onrender.com/photos"
   constructor(private httpClient : HttpClient) { }
 
   getPhoto(teacher:string){

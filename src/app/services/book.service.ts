@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BookService {
-  bookUrl:string="http://localhost:3000/book"
+  bookUrl:string="https://education-platform-60q2.onrender.com/book"
   constructor(private httpClient:HttpClient) { }
   searchBook(obj:any){
     return this.httpClient.post<{data:any}>(this.bookUrl,obj);

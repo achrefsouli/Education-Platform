@@ -6,7 +6,7 @@ import { Router } from 'express';
   providedIn: 'root'
 })
 export class UserService {
-  userUrl: string = "http://localhost:3000/users"
+  userUrl: string = "https://education-platform-60q2.onrender.com/users"
   constructor(private httpClient: HttpClient) { }
   signup(user: any, photo: File) {
 
