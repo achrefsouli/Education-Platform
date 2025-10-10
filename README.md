@@ -1,27 +1,47 @@
-# Education
+# 🎓 Education Platform
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+A full-stack web application designed to simplify student–teacher interaction, course management, and content sharing.  
+Built using **Angular**, **Node.js**, **Express**, and **MongoDB (Atlas)**.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Tech Stack
 
-## Code scaffolding
+### 🖥️ Frontend
+- **Angular 14**
+- **TypeScript**
+- **Nebular UI**
+- **Chart.js**
+- **Axios** for API communication
+- **Netlify** for deployment
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### ⚙️ Backend
+- **Node.js** + **Express.js**
+- **MongoDB Atlas** (cloud database)
+- **Mongoose** ORM
+- **Multer** for file uploads (CVs, images)
+- **Twilio API** for SMS notifications
+- **Open Library API** for book recommendations
+- **Unsplash API** for free course images
+- **Render** for hosting
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🧩 Features
 
-## Running unit tests
+- 🔐 **Authentication** (login / signup for teachers & students & Parents)  
+- 🧑‍🏫 **Teacher management** (upload CVs, profile pictures)  
+- 🧠 **Course management** (CRUD operations for teachers & admins)  
+- 📊 **Admin dashboard** with interactive charts  
+- 📷 **Dynamic course banners** from Unsplash API  
+- 📚 **Book recommendations** via Open Library API  
+- 📩 **Email & SMS notifications** via Nodemailer / Twilio  
+- 🧾 **File uploads** (student CVs, teacher profiles)  
+- 🔒 **Rate-limiting** to prevent brute-force attacks  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+🌍 Live Demo
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Link: https://educationplatforme.netlify.app
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
